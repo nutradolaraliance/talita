@@ -239,6 +239,14 @@ Você pode ser a diferença entre a dor e o lívio. Entre o desespero e a espera
 
         <h4 style="text-align: center;">Clique no valor <br> que deseja doar</h4>
         <p class="donation-multiplier"><strong>✨ DOAÇÃO DUPLICADA! ✨</strong> Doações a partir de R$50 serão multiplicadas por 2 pelos nossos patrocinadores e grupo de empresários que apoiam nossa campanha! Sua ajuda vale o dobro até 15/05. Não perca essa oportunidade de maximizar seu impacto na vida da Talita!</p>
+        <div class="email-donation">
+          <h4 style="text-align: center; margin-top: 10px; margin-bottom: 15px;">Se preferir utilize nossa chave pix email:</h4>
+          <div class="email-container">
+            <span id="donation-email">doedecoracao2025@gmail.com</span>
+            <button id="copy-email-btn" onclick="copyEmail()">Copiar</button>
+          </div>
+        </div>
+        
         <div class="buttons-section">
           <div class="buttons-section1">
             <a href="#">
@@ -341,5 +349,116 @@ Você pode ser a diferença entre a dor e o lívio. Entre o desespero e a espera
       <script src="js/script.js"></script>
       <script src="js/pix.js"></script>
       <script src="js/toast.js"></script>
+      <script>
+        function copyEmail() {
+          const emailText = document.getElementById('donation-email').textContent;
+          navigator.clipboard.writeText(emailText)
+            .then(() => {
+              showToast('Email copiado com sucesso!', 'success');
+            })
+            .catch(err => {
+              console.error('Erro ao copiar email: ', err);
+              showToast('Erro ao copiar email', 'error');
+            });
+        }
+
+        function showToast(message, type) {
+          const toast = document.createElement('div');
+          toast.className = 'toast ' + type;
+          toast.innerHTML = `
+            <div class="toast-content">
+              <span>${message}</span>
+            </div>
+          `;
+          document.body.appendChild(toast);
+          
+          // Mostra o toast
+          setTimeout(() => {
+            toast.classList.add('show');
+          }, 100);
+          
+          // Remove o toast após 3 segundos
+          setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+              document.body.removeChild(toast);
+            }, 300);
+          }, 3000);
+        }
+      </script>
+      <style>
+        .email-donation {
+          margin: 20px auto;
+          max-width: 500px;
+          text-align: center;
+        }
+        .email-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          margin: 0 auto 20px;
+          padding: 12px;
+          background-color: #f5f8ff;
+          border-radius: 8px;
+          border: 1px solid #ccdeff;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+          max-width: 450px;
+        }
+        #donation-email {
+          font-weight: bold;
+          color: #3366cc;
+          font-size: 16px;
+        }
+        #copy-email-btn {
+          background-color: #1e88e5;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          padding: 8px 15px;
+          cursor: pointer;
+          font-weight: bold;
+          transition: background-color 0.3s;
+        }
+        #copy-email-btn:hover {
+          background-color: #1565c0;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos da Toast */
+        .toast {
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%) translateY(100px);
+          padding: 12px 20px;
+          border-radius: 4px;
+          color: white;
+          font-weight: 500;
+          z-index: 9999;
+          opacity: 0;
+          transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+          max-width: 80%;
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .toast.show {
+          transform: translateX(-50%) translateY(0);
+          opacity: 1;
+        }
+        
+        .toast.success {
+          background-color: #43a047;
+        }
+        
+        .toast.error {
+          background-color: #e53935;
+        }
+        
+        .toast-content {
+          display: flex;
+          align-items: center;
+        }
+      </style>
   </body>
 </html>
