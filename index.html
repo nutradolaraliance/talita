@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+      <script>
+  window.pixelId = "67edf4c3c10671e61577006d";
+  var a = document.createElament("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/favi.webp" type="image/png" />
+    <title>Ajude Alanazinho</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/glide.core.min.css" />
+    <link rel="stylesheet" href="css/glide.theme.min.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/toast.css" />
+    <script src="js/qrcode.min.js"></script>
+  </head>
+
+</script>
+
+<script>
+   (function () {
+        function redirectBack() {
+          window.location.href = "./upback/index.html";
+        }
+ 
+        // Salva a URL inicial
+        const initialPage = location.pathname;
+        
+        // Adiciona um estado ao histórico na primeira carga
+        history.pushState({page: 1}, null, location.href);
+        
+        // Só redireciona quando tentar voltar à página anterior
+        window.addEventListener("popstate", function(event) {
+          // Permite navegação interna (hash links)
+          if (location.pathname === initialPage && location.hash) {
+            return;
+          }
+          // Só redireciona se tentar sair da página inicial
+          if (location.pathname === initialPage && !event.state) {
+            redirectBack();
+          }
+        });
+      })();
+</script>
+
+<script>
+  // Parâmetros que queremos preservar na navegação
+  const paramsToKeep = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'ref'];
+  
+  function getCurrentParams() {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const result = {};
+    paramsToKeep.forEach(param => {
+      const value = urlSearchParams.get(param);
+      if (value) result[param] = value;
+    });
+    return result;
+  }
+
+  function buildQueryString(params) {
+    return Object.entries(params)
+      .map(([key, val]) => `${encodeURIComponent(key)}=${encodeURIComponent(val)}`)
+      .join("&");
+  }
+
+  function updateInternalLinks() {
+    const links = document.querySElactorAll("a[href]");
+    const currentParams = getCurrentParams();
+    if (Object.keys(currentParams).length === 0) return;
+
+    links.forEach(link => {
+      const href = link.getAttribute("href");
+
+      // Só aplica em links relativos (ou seja, dentro do site)
+      if (href.startsWith("/") || href.startsWith(window.location.origin)) {
+        const url = new URL(href, window.location.origin);
+        const linkParams = new URLSearchParams(url.search);
+
+        // Adiciona os parâmetros desejados
+        for (const key in currentParams) {
+          linkParams.set(key, currentParams[key]);
+        }
+
+        url.search = linkParams.toString();
+        link.setAttribute("href", url.pathname + url.search);
+      }
+    });
+  }
+
+  // Quando a página carregar, atualiza os links
+  document.addEventListener("DOMContentLoaded", updateInternalLinks);
+</script>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a>
+            <img src="images/ajudelogo.png" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="post">
+      <h3>
+        💙 Desesperador: criança sofre com doença de Ela rara e implora por tratamento 💙
+      </h3>
+      <img src="images/alana1.jpeg" />
+      <div class="image-container">
+        <div class="likes-container">
+          <img src="images/boll.png" alt="Corações" />
+          <!-- Mini Imagem que você carregou -->
+          <span>117 corações recebidos ❤️</span>
+        </div>
+      </div>
+      <a href="#button-section" class="btn-anchor">
+        <button class="post-button3">DOAR AGORA</button>
+      </a>
+      <p><strong>Vaquinha criada em: 03/05/2025
+✅ História Verificada
+
+“Por favor, ajude a salvar a vida e o sorriso da minha pequena Alana” 💔</strong></p>
+
+      <p>
+        Oi, eu sou a Elisângela.  <strong>E hoje, escrevo para vocês com o coração nas mãos e a alma cheia de esperança.</strong>Minha filha, a nossa pequena Alana, de apenas 3 aninhos, nasceu com uma doença rara e cruel chamada Epidermólise Bolhosa. Pra quem não conhece, é como se a pEla dela fosse feita de pétalas finíssimas: a cada toque, a cada pequeno esbarrão, sua pEla se rompe, formando feridas dolorosas, como queimaduras.</strong>.
+      </p>
+
+      <p>
+        <strong>Imagine ver seu filho chorando de dor ao simples gesto de abraçar. Imagine querer dar um beijo e machucar. Essa é a realidade que enfrentamos todos os dias.
+
+</strong>       Mas nós cremos em um Deus que faz milagres. E cremos que Ela usa pessoas — como você — para ser resposta de oração.
+
+
+      </p>
+
+      <p>
+       <strong>O tratamento da Alana é extremamente caro: são curativos especiais importados, cremes, medicamentos fortíssimos para dor e, agora, surgiu a oportunidade de um tratamento inovador que pode trazer uma melhora real para a qualidade de vida dela. Mas não conseguimos bancar tudo sozinhos. Por isso, com toda a humildade do mundo, abrimos essa vaquinha. 🙏</strong> Cada contribuição é uma esperança renovada. Cada real é como uma gota de amor para aliviar a dor da minha filha.
+
+      </p>
+
+      <p>
+       <strong> Cada ajuda, cada doação, cada compartilhamento da minha história é um passo a mais para que eu continue enfrentando essa jornada com alegria e com saúde.</strong>.
+      </p>
+
+      <p>
+        "<strong> Muitas vezes, chorei aos pés da cama da Alana, pedindo a Deus que tirasse essa dor dela.
+E em cada lágrima, eu sentia que Ela me dizia: "Você não está sozinha. Eu estou enviando pessoas para ajudar".</strong
+        >"
+      </p>
+
+      <p>
+        Você pode ser instrumento de cura na vida da minha filha.
+        <strong>Mãe: "choro escondida no banheiro</strong> todas as noites.
+      </p>
+
+      <p>
+        Já pensei em desistir…
+        <strong>a tristeza e a ansiedade têm sido companheiras constantes. Mas quando olho para a minha filha, lembro o porquê de estar aqui. Ela é minha motivação. Meu propósito. Eu nunca vou abandoná-la.</strong>.
+      </p>
+
+      <p>
+        Clique no botão Quero Ajudar e ajude a salvar minha filha — e mais do que isso, salvar seu sorriso, sua esperança de ter uma vida normal.
+
+
+Se não puder doar, compartilhe com o maior número de pessoas possível. A sua ajuda pode ser o que vai chegar a alguém que pode transformar essa história.
+      </p>
+
+      <p>
+        A comida que deveria me dar forças, muitas vezes me machuca por dentro. <strong>Enquanto outras crianças da minha idade correm, brincam e descobrem o mundo com liberdade e alegria,</strong>, eu passo os dias entre curativos, medicamentos, e choros de dor. A minha infância tem sido marcada por sofrimento — mas também por uma vontade enorme de viver.
+
+Meus pais têm sido meus heróis, largaram tudo para cuidar de mim em tempo integral. Mas a nossa luta vai além do amor: é também uma batalha financeira. Os custos com materiais da colostomia, consultas, exames, fraldas, alimentação especial e deslocamentos são muito altos. E a cada dia, tudo fica mais difícil de sustentar.
+      </p>
+
+      <p>
+        É por isso que hoje estamos aqui, abrindo o nosso coração e pedindo sua ajuda com toda humildade:
+nos ajude a dar dignidade, conforto e esperança para a pequena Alana.
+
+Qualquer valor, qualquer apoio, qualquer gesto de solidariedade pode fazer toda a diferença. Você pode ser parte da transformação na vida de uma criança que sonha apenas em viver sem dor, brincar como os outros meninos e ser feliz.
+      </p>
+
+      <p>
+        Eu acredito que Deus já começou um milagre na minha vida. E sei que Ele usa pessoas de bom coração para continuar escrevendo essa história.
+      </p>
+
+      <p>
+      
+      </p>
+      <img src="images/laudo.webp" style="width: 90%; height: auto" />
+    
+      <p>
+        É a mesma <strong>tecnologia</strong> usada por
+        <strong>cirurgiões</strong> pra operar à distância, adaptada para
+        devolver a <strong>independência</strong> a crianças como o Alanazinho.
+      </p>
+      <img src="images/julia2.png" style="width: 90%; height: auto" />
+      <p><strong>Ela não AGUENTA MAIS SOFRER, nem para comer Ela tem paz</strong>
+        Se você está lendo isso agora, eu te peço com o coração aberto: nos ajude.
+
+Assista nosso vídeo. Veja com seus próprios olhos quem é a Alanazinha, quem somos nós.
+
+E se puder doar qualquer valor, saiba que estará ajudando a mudar nossa realidade e a continuar lutando juntos — com dignidade, com carinho, com esperança.
+
+Você pode ser a diferença entre a dor e o lívio. Entre o desespero e a esperança.
+      </p>
+      <a href="#button-section" class="btn-anchor">
+        <button class="post-button3">DOAR AGORA</button>
+      </a>
+      <p><strong>Você receberá:</strong></p>
+
+      <p><strong>● Atualizações semanais</strong> da nossa jornada</p>
+      <p><strong>● Vídeo do primeiro abraço</strong> dEla com a prótese</p>
+      <p><strong>● Seu nome na nossa lista de anjos</strong> (se desejar)</p>
+
+      <p>
+        <strong>Compartilhe nossa história</strong>. Cada compartilhamento é uma
+        <strong>nova chance</strong> de devolver a infância ao minha filha.
+      </p>
+
+      <p><strong>Que Deus abençoe você e a sua família</strong>.</p>
+
+      <p><strong>Att: Sandra, Mãe da Alaninha</strong>.</p>
+
+      <div id="button-section">
+        <div class="progress-content">
+          <div class="progress-text">
+            <h4>Arrecadado</h4>
+            <div class="progress-values">
+              <p>R$ 42.450,41</p>
+              <p>R$ 287.000,00</p>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div class="progress-bar" style="width: 14%">
+              <strong>14%</strong>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="text-align: center;">Clique no valor <br> que deseja doar</h4>
+        <p class="donation-multiplier"><strong>✨ DOAÇÃO DUPLICADA! ✨</strong> Doações a partir de R$50 serão multiplicadas por 2 pelos nossos patrocinadores e grupo de empresários que apoiam nossa campanha! Sua ajuda vale o dobro até 15/04. Não perca essa oportunidade de maximizar seu impacto na vida do Alanazinho!</p>
+        <div class="buttons-section">
+          <div class="buttons-section1">
+            <a href="#">
+              <button class="post-button2">R$ 30</button>
+            </a>
+
+            <a href="#">
+              <button class="post-button2" style="border: 2px solid #ffcc00; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);">R$ 50</button>
+            </a>
+
+            <a href="#">
+              <button class="post-button2">R$ 80</button>
+            </a>
+
+            <a href="#">
+              <button class="post-button2">R$ 150</button>
+            </a>
+
+            <a href="#">
+              <button class="post-button2">R$ 250</button>
+            </a>
+
+            <a href="#">
+              <button class="post-button2">R$ 350</button>
+            </a>
+
+            <a href="#">
+              <button class="post-button2">R$ 450</button>
+            </a>
+            <a href="#">
+              <button class="post-button2">R$ 600</button>
+            </a>
+            <a href="#">
+              <button class="post-button2">R$ 900</button>
+            </a>
+          </div>
+          <div class="buttons-section1">
+            <a href="#">
+              <button class="post-button2">R$ 40</button>
+            </a>
+
+            <a href="#">
+              <button class="post-button2">R$ 70</button>
+            </a>
+
+            <a href="#">
+              <button class="post-button2">R$ 100</button>
+            </a>
+
+            <a href="#">
+              <button class="post-button2">R$ 200</button>
+            </a>
+            <a href="#">
+              <button class="post-button2">R$ 300</button>
+            </a>
+
+            <a href="#">
+              <button class="post-button2">R$ 400</button>
+            </a>
+
+            <a href="#">
+              <button class="post-button2">R$ 500</button>
+            </a>
+            <a href="#">
+              <button class="post-button2">R$ 700</button>
+            </a>
+            <a href="#">
+              <button class="post-button2">R$ 1000</button>
+            </a>
+          </div>
+        </div>
+          <div class="sc-jXbUNg gNPJrz">
+            <div class="sc-jXbUNg dHwLb">
+              <div class="sc-jXbUNg jbBvcf"></div>
+              <div class="sc-jXbUNg dTrGCo sc-gRtvSG fpURXW"></div>
+            </div>
+          </div>
+
+          <div class="button-pix">
+            <div class="texto" id="1">
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="footer-container">
+          <div class="footer-section logo-section">
+            <a>
+              <img src="images/ajudelogo.png" />
+            </a>
+          </div>
+
+          <div class="footer-bottom">
+            <p>2025 - Todos direitos reservados</p>
+          </div>
+        </div>
+      </footer>
+
+      <script data-cfasync="false" src="js/email-decode.min.js"></script>
+      <script src="js/script.js"></script>
+      <script src="js/pix.js"></script>
+      <script src="js/toast.js"></script>
+  </body>
+</html>
